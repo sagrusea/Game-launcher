@@ -1,0 +1,50 @@
+game-launcher/
+├── backend/                # Backend code (core functionality)
+│   ├── db/                 # Database files and schema
+│   │   ├── database.json   # Placeholder for JSON-based storage (or SQLite file)
+│   │   └── schema.sql      # SQL schema (if using SQLite)
+│   ├── services/           # Game management and utility scripts
+│   │   ├── game_manager.py # Add/remove/launch game logic
+│   │   └── config.py       # Configuration (paths, settings, etc.)
+│   ├── api/                # Backend API for frontend integration
+│   │   ├── app.py          # Main API server (e.g., Flask/FastAPI entry point)
+│   │   └── routes/         # API routes
+│   │       ├── games.py    # Game-related API endpoints
+│   │       └── system.py   # System-related endpoints (e.g., settings)
+│   ├── launcher.py         # Main entry point for backend (if needed)
+│   └── requirements.txt    # Python dependencies (e.g., Flask, FastAPI)
+│
+├── frontend/               # Frontend code (UI/UX)
+│   ├── src/                # Source files for the frontend
+│   │   ├── assets/         # Static files (images, icons, etc.)
+│   │   │   ├── icons/      # Game icons and app assets
+│   │   │   └── styles/     # CSS or SCSS files
+│   │   ├── components/     # Reusable UI components
+│   │   │   ├── GameCard.jsx # A card component for displaying games
+│   │   │   └── Navbar.jsx  # Navigation bar component
+│   │   ├── pages/          # Pages in the app
+│   │   │   ├── Library.jsx # Main library page
+│   │   │   ├── Settings.jsx # Settings page
+│   │   │   └── Home.jsx    # Home/landing page
+│   │   ├── App.jsx         # Main frontend entry point
+│   │   └── index.js        # React (or chosen framework) entry point
+│   ├── public/             # Public static files
+│   │   ├── index.html      # HTML template
+│   │   └── favicon.ico     # App icon
+│   └── package.json        # Frontend dependencies
+│
+├── tests/                  # Tests for both frontend and backend
+│   ├── backend/            # Backend test files
+│   │   └── test_game_manager.py # Unit tests for game management logic
+│   ├── frontend/           # Frontend test files
+│   │   └── test_library.jsx # Unit tests for the library page
+│   └── README.md           # Test instructions
+│
+├── docs/                   # Documentation and resources
+│   ├── roadmap.md          # Roadmap for the project
+│   ├── api_docs.md         # API documentation
+│   └── design_mockups/     # Design prototypes and assets
+│
+├── .gitignore              # Git ignore file
+├── README.md               # Project overview and setup instructions
+└── LICENSE                 # License file
