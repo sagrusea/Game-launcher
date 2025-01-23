@@ -1,0 +1,14 @@
+{
+    "auto_close_launcher": "false",
+    "background_music": "1.mp3",
+    "dark_mode": "false",
+    "max_games_display": "10",
+    "minimize_on_game_launch": "true",
+    "notifications": "[object Object]",
+    "overlay_enabled": "false",
+    "scan_directory": "",
+    "steam_integration": "[object Object]",
+    "system_resources": "[object Object]",
+    "theme": "[object Object]",
+    "updates": "[object Object]"
+}
