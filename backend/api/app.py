@@ -133,6 +133,23 @@ def scan_epic_games():
         logger.error(f"Error scanning for Epic Games: {e}")
         return jsonify({"error": str(e)}), 500
 
+@app.route("/api/games/bulk_delete", methods=["POST"])
+def bulk_delete_games():
+    data = request.json
+    game_ids = data.get("game_ids", [])
+    
+    if not game_ids:
+        logger.error("No game IDs provided for bulk delete")
+        return jsonify({"error": "No game IDs provided"}), 400
+    
+    try:
+        game_manager.delete_games(game_ids)
+        logger.info(f"Games with IDs {game_ids} deleted successfully")
+        return jsonify({"message": f"Games with IDs {game_ids} deleted successfully."}), 200
+    except Exception as e:
+        logger.error(f"Error deleting games with IDs {game_ids}: {e}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/cover_art/<filename>")
 def get_cover_art(filename):
     logger.info(f"Request for cover art: {filename}")
@@ -165,6 +182,17 @@ def list_music():
 def get_music(filename):
     logger.info(f"Request for music: {filename}")
     return send_from_directory(MUSIC_DIR, filename)
+
+@app.route("/api/config", methods=["POST"])
+def update_config():
+    new_config = request.json
+    try:
+        game_manager.edit_config(new_config)
+        logger.info("Configuration updated successfully")
+        return jsonify({"message": "Configuration updated successfully."}), 200
+    except Exception as e:
+        logger.error(f"Error updating configuration: {e}")
+        return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
     logger.info("Starting backend server")
