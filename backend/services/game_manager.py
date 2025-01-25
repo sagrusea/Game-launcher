@@ -153,6 +153,15 @@ def scan_for_steam_games():
         add_game_to_db(game["title"], game["url"])
         print(f"Found and added Steam game: {game['title']}")
 
+def scan_for_epic_games():
+    epic_games = [
+        {"title": "Epic Game 1", "url": "com.epicgames.launcher://apps/123456"},
+        {"title": "Epic Game 2", "url": "com.epicgames.launcher://apps/654321"}
+    ]
+    for game in epic_games:
+        add_game_to_db(game["title"], game["url"])
+        print(f"Found and added Epic game: {game['title']}")
+
 def display_menu(stdscr):
     curses.curs_set(0)
     stdscr.clear()
@@ -193,7 +202,8 @@ def simple_menu():
         print("5. Delete game")
         print("6. Scan for games")
         print("7. Scan for Steam games")
-        print("8. Exit")
+        print("8. Scan for Epic Games")
+        print("9. Exit")
         choice = input("Select an option: ")
 
         if choice == '1':
@@ -224,6 +234,8 @@ def simple_menu():
         elif choice == '7':
             scan_for_steam_games()
         elif choice == '8':
+            scan_for_epic_games()
+        elif choice == '9':
             break
         else:
             print("Invalid choice. Please try again.")
@@ -232,6 +244,7 @@ def main():
     init_db()
     scan_for_games(config.get("scan_directory", "."))
     scan_for_steam_games()
+    scan_for_epic_games()
     if CURSES_AVAILABLE:
         curses.wrapper(display_menu)
     else:

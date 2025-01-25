@@ -30,9 +30,9 @@ game_manager.init_db()
 
 # Directory to store cover art images
 COVER_ART_DIR = Path(__file__).parent / 'cover_art'
-CACHE_COVER_ART_DIR = Path("C:/Users/matej/AppData/Roaming/sagrusea/game-launcher/cache/cover_art")
+CACHE_COVER_ART_DIR = Path(os.getenv("CACHE_COVER_ART_DIR", "cache/cover_art"))
 SETTINGS_FILE = Path(__file__).parent / 'settings.json'
-MUSIC_DIR = Path("C:/Users/matej/Documents/GitHub/game-launcher/game-launcher/src/music")
+MUSIC_DIR = Path(os.getenv("MUSIC_DIR", "music"))
 
 @app.route("/", methods=["GET"])
 def root():
@@ -123,6 +123,16 @@ def scan_games():
         logger.error(f"Error scanning for games in directory '{directory}': {e}")
         return jsonify({"error": str(e)}), 500
 
+@app.route("/api/games/scan_epic", methods=["POST"])
+def scan_epic_games():
+    try:
+        game_manager.scan_for_epic_games()
+        logger.info("Scanned for Epic Games")
+        return jsonify({"message": "Scanned for Epic Games."}), 200
+    except Exception as e:
+        logger.error(f"Error scanning for Epic Games: {e}")
+        return jsonify({"error": str(e)}), 500
+
 @app.route("/cover_art/<filename>")
 def get_cover_art(filename):
     logger.info(f"Request for cover art: {filename}")
@@ -158,4 +168,5 @@ def get_music(filename):
 
 if __name__ == "__main__":
     logger.info("Starting backend server")
-    app.run(debug=True, port=5000)
+    # Disable reloader to prevent the Flask app from restarting
+    app.run(debug=True, port=5000, use_reloader=False)
