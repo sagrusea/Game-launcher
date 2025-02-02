@@ -1,0 +1,351 @@
+:root {
+    --primary-color: #8b5cf6;
+    --secondary-color: #7c3aed;
+    --background-color: #111827;
+    --card-background: #1f2937;
+    --text-color: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-color: #374151;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-color);
+}
+
+.btn-download {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.btn-download:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 92, 246, 0.4);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+}
+
+.hero-screenshot {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.main-screenshot {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.main-screenshot:hover {
+    transform: translateY(-5px);
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+}
+
+.features h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.feature-card {
+    background: linear-gradient(135deg, 
+        rgba(31, 41, 55, 0.7),
+        rgba(31, 41, 55, 0.3)
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.feature-screenshot {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-screenshot {
+    transform: scale(1.05);
+}
+
+.feature-card h3 {
+    color: var(--text-color);
+    margin: 15px 0;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Additional dark theme specific styles */
+::selection {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
+}
+
+/* Background Effects */
+.background-effects {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+.gradient-sphere {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: float 20s ease-in-out infinite;
+}
+
+.sphere-1 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, var(--primary-color), transparent);
+    top: -100px;
+    left: -100px;
+    animation-delay: 0s;
+}
+
+.sphere-2 {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, var(--secondary-color), transparent);
+    bottom: -200px;
+    right: -100px;
+    animation-delay: -5s;
+}
+
+.sphere-3 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #4c1d95, transparent);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: -10s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(50px, 50px) rotate(90deg);
+    }
+    50% {
+        transform: translate(0, 100px) rotate(180deg);
+    }
+    75% {
+        transform: translate(-50px, 50px) rotate(270deg);
+    }
+}
+
+/* GitHub Link Styling */
+.github-link {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.github-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.github-link a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.github-link a:hover {
+    color: var(--secondary-color);
+}
+
+.github-link a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .gradient-sphere {
+        filter: blur(100px);
+    }
+    
+    .sphere-1 {
+        width: 300px;
+        height: 300px;
+    }
+    
+    .sphere-2 {
+        width: 400px;
+        height: 400px;
+    }
+    
+    .sphere-3 {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
